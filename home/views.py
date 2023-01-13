@@ -17,7 +17,6 @@ def home(request):
         "phone": request.user.phone or "",
         "type": request.user.type,
         "institution": request.user.institution or "",
-        "ph_verified": request.user.phone_verified,
         "user_types": user_types,
     }
 

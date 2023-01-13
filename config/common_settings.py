@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 
 ]
 
-APPLICATION_NAME = "inmbum"
+APPLICATION_NAME = "Sasthrayaan"
 ADMIN_URL = "admin/"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -118,6 +118,7 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': [
             'profile',
             'email',
+            # 'https://www.googleapis.com/auth/user.phonenumbers.read',
         ],
         'AUTH_PARAMS': {
             'access_type': 'online',
