@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # local apps
+    "config",
     "home",
 
 ]
@@ -129,6 +130,8 @@ SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_URL = '/accounts/google/login/?process=login'
+
+AUTH_USER_MODEL = 'config.GmailUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/

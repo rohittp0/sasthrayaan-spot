@@ -43,6 +43,9 @@
                         <li><a href="https://sasthrayaan.cusat.ac.in/#schedule">Schedule</a></li>
                         <li><a href="https://sasthrayaan.cusat.ac.in/#department">Departments</a></li>
                         <li><a href="https://sasthrayaan.cusat.ac.in/#contact">Contacts</a></li>
+                        {% if user.is_authenticated %}
+                            <li><a href="accounts/logout">Logout</a></li>
+                        {% endif %}
                     </ul>
                 </nav>
             </div>

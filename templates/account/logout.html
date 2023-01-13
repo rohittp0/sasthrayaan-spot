@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Sign Out" %}{% endblock %}
+
+{% block body %}
+    <!-- Home About Section Begin -->
+    <section class="home-about-section spad" id="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ha-text bg-robot">
+                        <form method="post" class="row">
+                            {% csrf_token %}
+                            <div class="col-12 col-md-6 mb-3">
+                                Are you sure you want to sign-out?
+                            </div>
+
+                            <div class="col-12 col-md-6">
+                                <button type="submit" class="btn btn-outline-primary">
+                                    {% trans "Yes" %}
+                                </button>
+                                <button onclick="history.back()"
+                                        type="button" class="btn btn-outline-danger">
+                                    {% trans "No" %}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home About Section End -->
+{% endblock %}
