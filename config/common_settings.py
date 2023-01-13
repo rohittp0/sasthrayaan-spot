@@ -250,11 +250,7 @@ JAZZMIN_SETTINGS = {
 
         # external url that opens in a new window (Permissions can be added)
         # model admin to link to (Permissions checked against model)
-        {"model": "auth.User"},
-        {"name": "logs", "url": f"/{ADMIN_URL}log_viewer/"},
-        {"name": "requests", "url": f"/{ADMIN_URL}request-viewer/"},
-        # App with dropdown menu to all its models pages (Permissions checked against models)
-        {"app": "home"},
+
     ],
 
     #############
@@ -263,10 +259,6 @@ JAZZMIN_SETTINGS = {
 
     # # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
-        {"name": "logs", "url": f"/{ADMIN_URL}log_viewer/",
-         "icon": "fas fa-comments", },
-        {"name": "requests", "url": f"/{ADMIN_URL}request-viewer/",
-         "icon": "fas fa-comments", },
         {"model": "auth.user"}
     ],
 
