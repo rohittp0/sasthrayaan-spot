@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from rest_framework.decorators import action
@@ -11,8 +10,6 @@ from config.models import user_types
 def home(request):
     if request.user.is_staff:
         return redirect('admin:index')
-
-    print(settings.AUTH_USER_MODEL)
 
     context = {
         "name": request.user.get_full_name(),
