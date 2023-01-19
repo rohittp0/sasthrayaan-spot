@@ -3,7 +3,6 @@ import os
 
 load_dotenv(".env")
 settings = os.getenv('SETTINGS')
-debug = os.getenv('DEBUG')
 
 if settings == "prod":
     print("PRODUCTION SERVER")
