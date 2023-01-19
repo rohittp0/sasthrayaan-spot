@@ -17,6 +17,13 @@ if settings == "prod":
     STATIC_ROOT = "/var/www/html/static/"
     MEDIA_ROOT = '/var/www/html/media'
 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
 else:
     print("DEV SERVER")
     DEBUG = True
