@@ -10,7 +10,7 @@ if settings == "prod":
     from .common_settings import *
 
     ALLOWED_HOSTS = ["sasthrayaan.cusat.ac.in", "sasthrayaan.cusat.me"]
-    cors_allowed_origins = ["https://ssasthrayaan.cusat.ac.in", "https://ssasthrayaan.cusat.me"]
+    cors_allowed_origins = ["https://ssasthrayaan.cusat.ac.in", "https://sasthrayaan.cusat.me"]
     CSRF_TRUSTED_ORIGINS = cors_allowed_origins + ALLOWED_HOSTS
 
     STATIC_ROOT = "/var/www/html/static/"
