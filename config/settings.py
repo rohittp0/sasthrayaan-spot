@@ -11,7 +11,7 @@ if settings == "prod":
 
     ALLOWED_HOSTS = ["sasthrayaan.cusat.ac.in", "sasthrayaan.cusat.me"]
     cors_allowed_origins = ["https://ssasthrayaan.cusat.ac.in", "https://sasthrayaan.cusat.me"]
-    CSRF_TRUSTED_ORIGINS = cors_allowed_origins + ALLOWED_HOSTS
+    CSRF_TRUSTED_ORIGINS = cors_allowed_origins
 
     STATIC_ROOT = "/var/www/html/static/"
     MEDIA_ROOT = '/var/www/html/media'
