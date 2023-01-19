@@ -10,6 +10,14 @@
 
     <!-- Home About Section Begin -->
     <section class="home-about-section" id="about-us">
+        {% if popup %}
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Details Saved</h4>
+                <p>Your details has been saved</p>
+                <hr>
+                <p class="mb-0">Registration Complete</p>
+            </div>
+        {% endif %}
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -53,13 +61,20 @@
                             <div class="form-group row">
                                 <label for="institution" class="col-sm-2 col-form-label">Institution</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" value="{{ institution }}"
+                                    <input type="text" list="institutions" class="form-control"
+                                           value="{{ institution }}"
                                            name="institution" id="institution" required>
                                 </div>
+                                <datalist id="institutions">
+                                </datalist>
                             </div>
                             {% csrf_token %}
                             <button type="submit" class="primary-btn top-btn">
-                                {% trans "Submit" %}
+                                {% if not saved %}
+                                    {% trans "Submit" %}
+                                {% else %}
+                                    {% trans "Edit" %}
+                                {% endif %}
                             </button>
                         </form>
                     </div>
@@ -67,5 +82,50 @@
             </div>
         </div>
     </section>
+    <script>
+        const debounce = (func, wait) => {
+            let timeout;
+
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        function get_institutions(query) {
+            fetch(`{% url "institution" %}?q=${query}`)
+                .then(response => response.json())
+                .then(({institutions}) => {
+                    institutionList.innerHTML = '';
+                    institutions.forEach(institution => {
+                        const option = document.createElement('option');
+                        option.value = institution;
+                        option.innerText = institution;
+
+                        institutionList.appendChild(option);
+                    });
+                });
+        }
+
+        // Dynamically populate a combobox with the list of institutions returned by the API as the user types using plain JavaScript
+        const institutionInput = document.getElementById('institution');
+        const institutionList = document.getElementById('institutions');
+
+        institutionInput.addEventListener('input', debounce((e) => {
+            const query = e.target.value;
+            if (query.length < 1)
+                return;
+
+            get_institutions(query);
+        }, 1000));
+
+        get_institutions('');
+
+    </script>
     <!-- Home About Section End -->
 {% endblock %}
