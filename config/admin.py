@@ -11,7 +11,7 @@ class GmailUserAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'type')
     list_filter = ('type', "institution")
     search_fields = ('first_name', "last_name", 'email')
-    readonly_fields = ('image_tag', 'email', 'username')
+    readonly_fields = ('image_tag', 'email', 'username', 'name')
 
     model = GmailUser
 
@@ -31,9 +31,17 @@ class GmailUserAdmin(admin.ModelAdmin):
         else:
             return (
                 (None, {
-                    'fields': ('image_tag', 'email', 'first_name', 'last_name', 'phone', 'type', 'institution')
+                    'fields': ('image_tag', 'email', 'name', 'phone', 'type', 'institution')
                 }),
             )
+
+    def get_list_display(self, request, obj=None):
+        list_display = ('name', 'email', 'type')
+
+        if request.user.is_superuser:
+            return list_display + ('username', 'is_staff', 'groups', 'institution')
+        else:
+            return list_display + ('phone', 'institution')
 
 
 admin.site.register(GmailUser, GmailUserAdmin)
