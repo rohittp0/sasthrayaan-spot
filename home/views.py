@@ -31,7 +31,7 @@ def home(request):
         "email": request.user.email,
         "phone": request.user.phone or "",
         "type": request.user.type,
-        "institution": request.user.institution or "",
+        "institution": (request.user.institution or "").upper(),
         "user_types": user_types,
         "saved": request.user.saved,
     }
