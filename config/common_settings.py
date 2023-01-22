@@ -128,9 +128,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SITE_ID = 2
 
-LOGIN_REDIRECT_URL = 'spot/'
-LOGOUT_REDIRECT_URL = 'spot/'
-LOGIN_URL = 'spot/accounts/google/login/?process=login'
+LOGIN_REDIRECT_URL = '/spot/'
+LOGOUT_REDIRECT_URL = '/spot/'
+LOGIN_URL = '/spot/accounts/google/login/?process=login'
 
 AUTH_USER_MODEL = 'config.GmailUser'
 
