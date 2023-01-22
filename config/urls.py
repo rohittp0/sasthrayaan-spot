@@ -39,9 +39,9 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path("", include("home.urls")),
+    path("spot/", include("home.urls")),
     path(settings.ADMIN_URL, admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+    path('spot/accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + \

@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 ]
 
 APPLICATION_NAME = "Sasthrayaan"
-ADMIN_URL = "admin/"
+ADMIN_URL = "spot/admin/"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -128,9 +128,9 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SITE_ID = 2
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/accounts/google/login/?process=login'
+LOGIN_REDIRECT_URL = 'spot/'
+LOGOUT_REDIRECT_URL = 'spot/'
+LOGIN_URL = 'spot/accounts/google/login/?process=login'
 
 AUTH_USER_MODEL = 'config.GmailUser'
 
@@ -148,8 +148,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
+STATIC_URL = '/spot/static/'
+MEDIA_URL = '/spot/media/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
