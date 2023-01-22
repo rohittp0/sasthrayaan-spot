@@ -83,6 +83,8 @@
         </div>
     </section>
     <script>
+        window.history.pushState({}, document.title, window.location.pathname);
+
         const debounce = (func, wait) => {
             let timeout;
 
