@@ -16,7 +16,7 @@ def home(request):
         user = request.user
         user.type = request.POST.get('type')
         user.phone = request.POST.get('phone')
-        user.institution = request.POST.get('institution')
+        user.institution = (request.POST.get('institution') or "").strip().upper()
         user.saved = True
         user.save()
 
@@ -30,7 +30,7 @@ def home(request):
         "email": request.user.email,
         "phone": request.user.phone or "",
         "type": request.user.type,
-        "institution": (request.user.institution or "").upper(),
+        "institution": request.user.institution or "",
         "user_types": user_types,
         "saved": request.user.saved,
         "popup": request.GET.get('popup', False),
